@@ -1,5 +1,10 @@
 # 💧 Smart Water Crisis & Irrigation Intelligence System
 
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+
 An AI-powered analytics platform that predicts groundwater stress and detects irrigation inefficiency using Machine Learning.
 
 ---
@@ -11,9 +16,9 @@ Over-extraction of groundwater and poor irrigation practices lead to water deple
 
 This project builds a data-driven decision support system to analyze and predict:
 
-- 💧 District-level Water Stress
-- 🌾 Irrigation Inefficiency
-- 📊 Water Usage Patterns
+- 💧 District-level Water Stress  
+- 🌾 Irrigation Inefficiency  
+- 📊 Water Usage Patterns  
 
 ---
 
@@ -30,17 +35,6 @@ This project builds a data-driven decision support system to analyze and predict
 ---
 
 ## 🏗️ System Architecture
-Raw ZIP Files
-↓
-Automatic Extraction
-↓
-Data Cleaning & Transformation
-↓
-Feature Engineering
-↓
-Machine Learning Model Training
-↓
-Interactive Analytics Dashboard
 
 ---
 
@@ -60,31 +54,48 @@ Interactive Analytics Dashboard
 
 ## 📊 Technologies Used
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Streamlit
-- Plotly
-- Joblib
+- Python  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- Streamlit  
+- Plotly  
+- Joblib  
+
+---
+
+## 📷 Dashboard Preview
+
+### 🏠 Main Dashboard
+![Dashboard 1](assets/dashboard1.png)
+
+---
+
+### 💧 Water Crisis Prediction Module
+![Dashboard 2](assets/dashboard2.png)
+
+---
+
+### 🌾 Irrigation Efficiency Module
+![Dashboard 3](assets/dashboard3.png)
 
 ---
 
 ## 🎯 Real-World Impact
 
-- Helps policymakers identify over-exploited districts
-- Encourages sustainable groundwater management
-- Assists farmers in choosing efficient irrigation methods
-- Converts environmental data into actionable insights
+- Helps policymakers identify over-exploited districts  
+- Encourages sustainable groundwater management  
+- Assists farmers in choosing efficient irrigation methods  
+- Converts environmental data into actionable insights  
 
 ---
 
 ## 🔮 Future Scope
 
-- Rainfall forecasting using time-series models
-- GIS-based district heatmaps
-- Real-time groundwater sensor integration
-- Government decision-support system deployment
+- Rainfall forecasting using time-series models  
+- GIS-based district heatmaps  
+- Real-time groundwater sensor integration  
+- Government decision-support system deployment  
 
 ---
 
@@ -100,3 +111,7 @@ python -m src.models.train_irrigation
 
 # Step 3: Launch dashboard
 streamlit run src/app/app.py
+👨‍💻 Author
+
+Amarnath Reddy
+AI & Machine Learning Enthusiast
