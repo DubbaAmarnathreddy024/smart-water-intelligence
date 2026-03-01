@@ -1,4 +1,7 @@
 # 💧 Smart Water Crisis & Irrigation Intelligence System
+## 🌍 Live Demo
+
+🔗 https://smart-water-intelligence-hrxxngvj9phzpyjrpuacne.streamlit.app/
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine-Learning-green)
