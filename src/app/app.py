@@ -142,7 +142,90 @@ hr {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #050d1a; }
 ::-webkit-scrollbar-thumb { background: #1a4a80; border-radius: 3px; }
+
+/* ══════════════════════════════════════════
+   FLOATING BUBBLES — pure CSS, no JS
+   ══════════════════════════════════════════ */
+.bubble-wrap {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+.b {
+    position: absolute;
+    bottom: -100px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: rise linear infinite;
+}
+.b::after {
+    content: '';
+    position: absolute;
+    top: 16%; left: 20%;
+    width: 32%; height: 22%;
+    background: rgba(255,255,255,0.32);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+.ba {
+    background: radial-gradient(circle at 35% 35%, rgba(100,200,255,0.60) 0%, rgba(0,120,220,0.18) 55%, transparent 100%);
+    border: 1px solid rgba(100,200,255,0.38);
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.20), 0 0 16px rgba(0,160,255,0.14);
+}
+.bb {
+    background: radial-gradient(circle at 35% 35%, rgba(60,220,255,0.50) 0%, rgba(0,80,180,0.15) 55%, transparent 100%);
+    border: 1px solid rgba(60,220,255,0.30);
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.16), 0 0 12px rgba(0,200,255,0.12);
+}
+.bc {
+    background: radial-gradient(circle at 35% 35%, rgba(180,240,255,0.40) 0%, rgba(0,60,140,0.12) 55%, transparent 100%);
+    border: 1px solid rgba(180,240,255,0.24);
+    box-shadow: inset 0 0 6px rgba(255,255,255,0.12);
+}
+@keyframes rise {
+    0%   { transform: translateY(0)      translateX(0px)      scale(1.00); opacity: 0;    }
+    6%   {                                                                  opacity: 0.90; }
+    50%  { transform: translateY(-52vh)  translateX(var(--sw)) scale(1.05); opacity: 0.80; }
+    94%  {                                                                  opacity: 0.50; }
+    100% { transform: translateY(-112vh) translateX(0px)      scale(0.82); opacity: 0;    }
+}
 </style>
+""", unsafe_allow_html=True)
+
+# ── Bubble HTML — 28 divs, pure CSS animation, no JavaScript ─────────────────
+st.markdown("""
+<div class="bubble-wrap">
+  <div class="b ba" style="width:20px;height:20px;left:4vw; animation-duration:12s;animation-delay:-2s; --sw:28px"></div>
+  <div class="b bb" style="width:34px;height:34px;left:9vw; animation-duration:17s;animation-delay:-7s; --sw:-22px"></div>
+  <div class="b bc" style="width:54px;height:54px;left:15vw;animation-duration:21s;animation-delay:-1s; --sw:38px"></div>
+  <div class="b ba" style="width:22px;height:22px;left:21vw;animation-duration:10s;animation-delay:-9s; --sw:-18px"></div>
+  <div class="b bb" style="width:70px;height:70px;left:27vw;animation-duration:19s;animation-delay:-4s; --sw:32px"></div>
+  <div class="b bc" style="width:18px;height:18px;left:33vw;animation-duration:14s;animation-delay:-12s;--sw:-30px"></div>
+  <div class="b ba" style="width:42px;height:42px;left:38vw;animation-duration:16s;animation-delay:-6s; --sw:24px"></div>
+  <div class="b bb" style="width:26px;height:26px;left:44vw;animation-duration:11s;animation-delay:-15s;--sw:-20px"></div>
+  <div class="b bc" style="width:60px;height:60px;left:50vw;animation-duration:22s;animation-delay:-3s; --sw:36px"></div>
+  <div class="b ba" style="width:30px;height:30px;left:55vw;animation-duration:13s;animation-delay:-10s;--sw:-26px"></div>
+  <div class="b bb" style="width:18px;height:18px;left:60vw;animation-duration:18s;animation-delay:-8s; --sw:16px"></div>
+  <div class="b bc" style="width:48px;height:48px;left:65vw;animation-duration:15s;animation-delay:0s;  --sw:-34px"></div>
+  <div class="b ba" style="width:74px;height:74px;left:70vw;animation-duration:20s;animation-delay:-13s;--sw:40px"></div>
+  <div class="b bb" style="width:22px;height:22px;left:76vw;animation-duration:9s; animation-delay:-5s; --sw:-14px"></div>
+  <div class="b bc" style="width:36px;height:36px;left:81vw;animation-duration:16s;animation-delay:-17s;--sw:22px"></div>
+  <div class="b ba" style="width:18px;height:18px;left:87vw;animation-duration:12s;animation-delay:-11s;--sw:-38px"></div>
+  <div class="b bb" style="width:56px;height:56px;left:92vw;animation-duration:23s;animation-delay:-2s; --sw:30px"></div>
+  <div class="b bc" style="width:28px;height:28px;left:6vw; animation-duration:14s;animation-delay:-16s;--sw:18px"></div>
+  <div class="b ba" style="width:44px;height:44px;left:12vw;animation-duration:19s;animation-delay:-4s; --sw:-28px"></div>
+  <div class="b bb" style="width:20px;height:20px;left:18vw;animation-duration:10s;animation-delay:-14s;--sw:12px"></div>
+  <div class="b bc" style="width:66px;height:66px;left:24vw;animation-duration:24s;animation-delay:-7s; --sw:-36px"></div>
+  <div class="b ba" style="width:24px;height:24px;left:30vw;animation-duration:13s;animation-delay:-1s; --sw:34px"></div>
+  <div class="b bb" style="width:40px;height:40px;left:36vw;animation-duration:17s;animation-delay:-18s;--sw:-16px"></div>
+  <div class="b bc" style="width:18px;height:18px;left:42vw;animation-duration:11s;animation-delay:-9s; --sw:26px"></div>
+  <div class="b ba" style="width:52px;height:52px;left:48vw;animation-duration:20s;animation-delay:-3s; --sw:-24px"></div>
+  <div class="b bb" style="width:32px;height:32px;left:57vw;animation-duration:15s;animation-delay:-12s;--sw:20px"></div>
+  <div class="b bc" style="width:72px;height:72px;left:73vw;animation-duration:25s;animation-delay:-6s; --sw:-32px"></div>
+  <div class="b ba" style="width:22px;height:22px;left:95vw;animation-duration:11s;animation-delay:-15s;--sw:14px"></div>
+</div>
 """, unsafe_allow_html=True)
 
 # ── Hero Banner ─────────────────────────────────────────────────────────────
@@ -210,7 +293,7 @@ st.sidebar.markdown("""
 
 menu = st.sidebar.radio(
     "",
-    [ "Project Guide","💧 Water Crisis Prediction", "🌾 Irrigation Efficiency", "📘 About Project"],
+    ["Project Guide", "💧 Water Crisis Prediction", "🌾 Irrigation Efficiency", "📘 About Project"],
     label_visibility="collapsed"
 )
 
