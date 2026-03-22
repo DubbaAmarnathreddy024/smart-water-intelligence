@@ -144,7 +144,12 @@ hr {
 ::-webkit-scrollbar-thumb { background: #1a4a80; border-radius: 3px; }
 
 /* ══════════════════════════════════════════
-   FLOATING BUBBLES — pure CSS, no JS
+   FLOATING BUBBLES — minimized, subtle
+   - Max size: 14px
+   - Only 10 bubbles (down from 28)
+   - Slower rise: 28s–42s duration
+   - Lower opacity: max 0.35
+   - Minimal sway (--sw reduced to ±8px)
    ══════════════════════════════════════════ */
 .bubble-wrap {
     position: fixed;
@@ -155,7 +160,7 @@ hr {
 }
 .b {
     position: absolute;
-    bottom: -100px;
+    bottom: -30px;
     border-radius: 50%;
     opacity: 0;
     animation: rise linear infinite;
@@ -163,68 +168,49 @@ hr {
 .b::after {
     content: '';
     position: absolute;
-    top: 16%; left: 20%;
-    width: 32%; height: 22%;
-    background: rgba(255,255,255,0.32);
+    top: 18%; left: 22%;
+    width: 28%; height: 18%;
+    background: rgba(255,255,255,0.20);
     border-radius: 50%;
-    filter: blur(2px);
+    filter: blur(1px);
 }
 .ba {
-    background: radial-gradient(circle at 35% 35%, rgba(100,200,255,0.60) 0%, rgba(0,120,220,0.18) 55%, transparent 100%);
-    border: 1px solid rgba(100,200,255,0.38);
-    box-shadow: inset 0 0 8px rgba(255,255,255,0.20), 0 0 16px rgba(0,160,255,0.14);
+    background: radial-gradient(circle at 35% 35%, rgba(100,200,255,0.40) 0%, rgba(0,120,220,0.10) 55%, transparent 100%);
+    border: 1px solid rgba(100,200,255,0.22);
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.10);
 }
 .bb {
-    background: radial-gradient(circle at 35% 35%, rgba(60,220,255,0.50) 0%, rgba(0,80,180,0.15) 55%, transparent 100%);
-    border: 1px solid rgba(60,220,255,0.30);
-    box-shadow: inset 0 0 8px rgba(255,255,255,0.16), 0 0 12px rgba(0,200,255,0.12);
+    background: radial-gradient(circle at 35% 35%, rgba(60,220,255,0.32) 0%, rgba(0,80,180,0.08) 55%, transparent 100%);
+    border: 1px solid rgba(60,220,255,0.18);
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.08);
 }
 .bc {
-    background: radial-gradient(circle at 35% 35%, rgba(180,240,255,0.40) 0%, rgba(0,60,140,0.12) 55%, transparent 100%);
-    border: 1px solid rgba(180,240,255,0.24);
-    box-shadow: inset 0 0 6px rgba(255,255,255,0.12);
+    background: radial-gradient(circle at 35% 35%, rgba(180,240,255,0.25) 0%, rgba(0,60,140,0.06) 55%, transparent 100%);
+    border: 1px solid rgba(180,240,255,0.14);
 }
 @keyframes rise {
     0%   { transform: translateY(0)      translateX(0px)      scale(1.00); opacity: 0;    }
-    6%   {                                                                  opacity: 0.90; }
-    50%  { transform: translateY(-52vh)  translateX(var(--sw)) scale(1.05); opacity: 0.80; }
-    94%  {                                                                  opacity: 0.50; }
-    100% { transform: translateY(-112vh) translateX(0px)      scale(0.82); opacity: 0;    }
+    8%   {                                                                  opacity: 0.35; }
+    50%  { transform: translateY(-52vh)  translateX(var(--sw)) scale(1.02); opacity: 0.28; }
+    92%  {                                                                  opacity: 0.12; }
+    100% { transform: translateY(-112vh) translateX(0px)      scale(0.90); opacity: 0;    }
 }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Bubble HTML — 28 divs, pure CSS animation, no JavaScript ─────────────────
+# ── Bubble HTML — 10 bubbles, all ≤14px, slow & subtle ──────────────────────
 st.markdown("""
 <div class="bubble-wrap">
-  <div class="b ba" style="width:20px;height:20px;left:4vw; animation-duration:12s;animation-delay:-2s; --sw:28px"></div>
-  <div class="b bb" style="width:34px;height:34px;left:9vw; animation-duration:17s;animation-delay:-7s; --sw:-22px"></div>
-  <div class="b bc" style="width:54px;height:54px;left:15vw;animation-duration:21s;animation-delay:-1s; --sw:38px"></div>
-  <div class="b ba" style="width:22px;height:22px;left:21vw;animation-duration:10s;animation-delay:-9s; --sw:-18px"></div>
-  <div class="b bb" style="width:70px;height:70px;left:27vw;animation-duration:19s;animation-delay:-4s; --sw:32px"></div>
-  <div class="b bc" style="width:18px;height:18px;left:33vw;animation-duration:14s;animation-delay:-12s;--sw:-30px"></div>
-  <div class="b ba" style="width:42px;height:42px;left:38vw;animation-duration:16s;animation-delay:-6s; --sw:24px"></div>
-  <div class="b bb" style="width:26px;height:26px;left:44vw;animation-duration:11s;animation-delay:-15s;--sw:-20px"></div>
-  <div class="b bc" style="width:60px;height:60px;left:50vw;animation-duration:22s;animation-delay:-3s; --sw:36px"></div>
-  <div class="b ba" style="width:30px;height:30px;left:55vw;animation-duration:13s;animation-delay:-10s;--sw:-26px"></div>
-  <div class="b bb" style="width:18px;height:18px;left:60vw;animation-duration:18s;animation-delay:-8s; --sw:16px"></div>
-  <div class="b bc" style="width:48px;height:48px;left:65vw;animation-duration:15s;animation-delay:0s;  --sw:-34px"></div>
-  <div class="b ba" style="width:74px;height:74px;left:70vw;animation-duration:20s;animation-delay:-13s;--sw:40px"></div>
-  <div class="b bb" style="width:22px;height:22px;left:76vw;animation-duration:9s; animation-delay:-5s; --sw:-14px"></div>
-  <div class="b bc" style="width:36px;height:36px;left:81vw;animation-duration:16s;animation-delay:-17s;--sw:22px"></div>
-  <div class="b ba" style="width:18px;height:18px;left:87vw;animation-duration:12s;animation-delay:-11s;--sw:-38px"></div>
-  <div class="b bb" style="width:56px;height:56px;left:92vw;animation-duration:23s;animation-delay:-2s; --sw:30px"></div>
-  <div class="b bc" style="width:28px;height:28px;left:6vw; animation-duration:14s;animation-delay:-16s;--sw:18px"></div>
-  <div class="b ba" style="width:44px;height:44px;left:12vw;animation-duration:19s;animation-delay:-4s; --sw:-28px"></div>
-  <div class="b bb" style="width:20px;height:20px;left:18vw;animation-duration:10s;animation-delay:-14s;--sw:12px"></div>
-  <div class="b bc" style="width:66px;height:66px;left:24vw;animation-duration:24s;animation-delay:-7s; --sw:-36px"></div>
-  <div class="b ba" style="width:24px;height:24px;left:30vw;animation-duration:13s;animation-delay:-1s; --sw:34px"></div>
-  <div class="b bb" style="width:40px;height:40px;left:36vw;animation-duration:17s;animation-delay:-18s;--sw:-16px"></div>
-  <div class="b bc" style="width:18px;height:18px;left:42vw;animation-duration:11s;animation-delay:-9s; --sw:26px"></div>
-  <div class="b ba" style="width:52px;height:52px;left:48vw;animation-duration:20s;animation-delay:-3s; --sw:-24px"></div>
-  <div class="b bb" style="width:32px;height:32px;left:57vw;animation-duration:15s;animation-delay:-12s;--sw:20px"></div>
-  <div class="b bc" style="width:72px;height:72px;left:73vw;animation-duration:25s;animation-delay:-6s; --sw:-32px"></div>
-  <div class="b ba" style="width:22px;height:22px;left:95vw;animation-duration:11s;animation-delay:-15s;--sw:14px"></div>
+  <div class="b ba" style="width:8px; height:8px; left:6vw;  animation-duration:32s;animation-delay:-4s;  --sw:6px"></div>
+  <div class="b bb" style="width:12px;height:12px;left:15vw; animation-duration:38s;animation-delay:-14s; --sw:-7px"></div>
+  <div class="b bc" style="width:6px; height:6px; left:24vw; animation-duration:28s;animation-delay:-8s;  --sw:5px"></div>
+  <div class="b ba" style="width:14px;height:14px;left:34vw; animation-duration:42s;animation-delay:-22s; --sw:-8px"></div>
+  <div class="b bb" style="width:8px; height:8px; left:44vw; animation-duration:35s;animation-delay:-3s;  --sw:7px"></div>
+  <div class="b bc" style="width:10px;height:10px;left:54vw; animation-duration:30s;animation-delay:-18s; --sw:-6px"></div>
+  <div class="b ba" style="width:6px; height:6px; left:63vw; animation-duration:40s;animation-delay:-11s; --sw:8px"></div>
+  <div class="b bb" style="width:12px;height:12px;left:73vw; animation-duration:36s;animation-delay:-26s; --sw:-5px"></div>
+  <div class="b bc" style="width:8px; height:8px; left:82vw; animation-duration:33s;animation-delay:-7s;  --sw:6px"></div>
+  <div class="b ba" style="width:10px;height:10px;left:91vw; animation-duration:39s;animation-delay:-16s; --sw:-7px"></div>
 </div>
 """, unsafe_allow_html=True)
 
